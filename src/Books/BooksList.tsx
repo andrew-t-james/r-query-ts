@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { Book } from "../types";
+import { Book, SortOrder } from "../types";
 import BookListPresenter from "./BooksListPresenter";
 
 export default function BookListComponent() {
@@ -43,7 +43,7 @@ export default function BookListComponent() {
           <button
             type="button"
             onClick={() => {
-              booksPresenter.sortBy("name", "asc");
+              booksPresenter.sortBy("name", SortOrder.Asc);
             }}
           >
             Filter by name ASC
@@ -51,7 +51,7 @@ export default function BookListComponent() {
           <button
             type="button"
             onClick={() => {
-              booksPresenter.sortBy("name", "desc");
+              booksPresenter.sortBy("name", SortOrder.Desc);
             }}
           >
             Filter by name DESC
