@@ -80,7 +80,7 @@ class BooksRepository {
     callback: (
       bookCount: number,
       lastAddedBook: string,
-      status?: "loading" | "error" | "success" | undefined
+      status: "loading" | "error" | "success"
     ) => void
   ) => {
     this.booksPm.subscribe((result) => {

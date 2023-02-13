@@ -10,7 +10,7 @@ export default class StatsPresenter {
       (
         bookCount: number,
         lastAddedBook: string,
-        status?: "loading" | "error" | "success"
+        status: "loading" | "error" | "success"
       ) => {
         const vm = {
           lastAddedBook: null,
