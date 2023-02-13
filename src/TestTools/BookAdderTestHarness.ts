@@ -69,4 +69,19 @@ export default class BookAdderTestHarness {
 
     await this.addBooksPresenter.addBook("UFT", "Pete Heard");
   }
+
+  async reset() {
+    jest.clearAllMocks();
+
+    const pivotedStub = GetPublicBooksStub();
+    pivotedStub.result.pop();
+
+    httpGateway.post = jest.fn();
+
+    httpGateway.get = jest.fn().mockImplementation(() => {
+      return pivotedStub;
+    });
+
+    await this.bookListPresenter.reset();
+  }
 }

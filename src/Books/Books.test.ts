@@ -47,6 +47,23 @@ describe("add book", () => {
     expect(bookListViewModel[5].name).toBe("Wind in the willows");
   });
 
+  it("should reset(anchor) and reload books", async () => {
+    // anchor
+    expect(httpGateway.get).toHaveBeenCalledWith(`${basePath}/allbooks`);
+    expect(bookListViewModel?.length).toBe(5);
+    expect(bookListViewModel[0].name).toBe("Moby Dick");
+    expect(bookListViewModel[4].name).toBe("The Hobbit");
+
+    // reset (pivot)
+    await bookAdderTestHarness?.reset();
+
+    expect(httpGateway.get).toHaveBeenCalledWith(`${basePath}/reset`);
+
+    expect(bookListViewModel.length).toBe(4);
+    expect(bookListViewModel[0].name).toBe("Moby Dick");
+    expect(bookListViewModel[3].name).toBe("I, Robot");
+  });
+
   it("should sort by name asc", async () => {
     // spot check
     expect(bookListViewModel[0].name).toBe("Moby Dick");
@@ -83,4 +100,5 @@ describe("add book", () => {
 
     expect(bookListViewModel.length).toBe(5);
   });
+
 });
