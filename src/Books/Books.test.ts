@@ -3,7 +3,7 @@ import BookAdderTestHarness from "../TestTools/BookAdderTestHarness";
 import { sleep } from "../TestTools/testing";
 import { Book, SortOrder } from "../types";
 
-describe("add book", () => {
+describe("books", () => {
   let bookAdderTestHarness: BookAdderTestHarness | null = null;
   let bookListViewModel: Book[] = [];
   const basePath = "https://api.logicroom.co/api/jpparkin@gmail.com";
